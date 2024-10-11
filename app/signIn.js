@@ -1,5 +1,5 @@
-import { View, Text, Image, TextInput, Pressable } from "react-native";
-import React from "react";
+import { View, Text, Image, TextInput, Pressable, Alert } from "react-native";
+import React, { useRef } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -9,8 +9,22 @@ import { Octicons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 
+
 export default function SignIn() {
   const router = useRouter();
+  
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+
+  const handelLogin = async() => {
+    if (!emailRef.current || !passwordRef.current) {
+      Alert.alert('Sign In',"Please fill all the fields");
+      return;
+    }
+      //Login process
+  }
+
+
   return (
     <View className="flex-1">
       <StatusBar style="dark" />
@@ -29,19 +43,20 @@ export default function SignIn() {
         </View>
         <View className="pt-1">
           <Text
-            style={{ fontSize: hp(4), textDecorationLine: "underline", fontWeight: 'semibold', }}
+            style={{ fontSize: hp(3),fontWeight: 'semibold', }}
             className="font-light tracking-widest text-center text-neutral-800 pb-8 shadow-md  "
           >
-            Sign In
+            SIGN IN
           </Text>
           {/*inputs*/}
           <View className="gap-3">
             <View
               style={{ height: hp(7) }}
-              className="flex-row gap-4 px-4 bg-brown-500 items-center rounded-xl  "
+              className="flex-row gap-4 px-4 bg-Satin-300 items-center rounded-xl  "
             >
               <Octicons name="mail" size={hp(2.7)} color="#504f54" />
               <TextInput
+                onChangeText={value=> emailRef.current=value}
                 style={{ fontSize: hp(2) }}
                 className="flex-1 text-neutral-800 font-semibold"
                 placeholder="Email Address"
@@ -51,13 +66,15 @@ export default function SignIn() {
             <View className="gap-3">
               <View
                 style={{ height: hp(7) }}
-                className="flex-row gap-4 px-4 bg-brown-500 items-center rounded-xl  "
+                className="flex-row gap-4 px-4 bg-Satin-300 items-center rounded-xl  "
               >
                 <Octicons name="lock" size={hp(2.7)} color="#504f54" />
                 <TextInput
+                onChangeText={value=> passwordRef.current=value}
                   style={{ fontSize: hp(2) }}
                   className="flex-1 text-neutral-800 font-semibold"
                   placeholder="Password"
+                  secureTextEntry
                   placeholderTextColor={"#504f54"}
                 />
               </View>
@@ -71,9 +88,9 @@ export default function SignIn() {
             </View>
             {/* Submit button */}
             <View className="justify-center items-center ">
-              <TouchableOpacity
+              <TouchableOpacity onPress={handelLogin}
                 style={{ height: hp(6.5), width: wp(50) }}
-                className="bg-Satin-300 rounded-xl justify-center items-center "
+                className="bg-brown-500 rounded-xl justify-center items-center "
               >
                 <Text
                   style={{ fontSize: hp(2.3), fontWeight: 'semibold', }}
