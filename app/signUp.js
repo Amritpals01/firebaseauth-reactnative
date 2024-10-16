@@ -9,6 +9,7 @@ import { Feather, Octicons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import Loading from "../components/Loading";
+import CustomKeyboardView from "../components/customKeyboardView";
 
 export default function SignUp() {
   const router = useRouter();
@@ -28,24 +29,27 @@ export default function SignUp() {
   };
 
   return (
-    <View className="flex-1">
+    <CustomKeyboardView>
       <StatusBar style="dark" />
       <View
         style={{ paddingTop: hp(9), paddingHorizontal: wp(5) }}
         className="flex-1 gap-12"
       >
-        <View className="pt-1">
-          <Text
-            style={{ fontSize: hp(4), fontWeight: "bold" }}
-            className="font-light tracking-widest text-center text-brown-500 pb-8   "
-          >
-            :REGISTER:
-          </Text>
+        <View className="pt-7">
+        <View className="items-center pt-6">
+          <Image
+            className="shadow-lg"
+            style={{ height: hp(20), width:wp(60) }}
+            resizeMode="fit"
+            source={require("../assets/images/signup.png")}
+          />
+        </View>
+          
           {/*inputs*/}
-          <View className="gap-3">
+          <View className="gap-3 pt-6">
             <View
               style={{ height: hp(7) }}
-              className="flex-row gap-4 px-4 bg-Satin-300 items-center rounded-xl  "
+              className="flex-row gap-4 px-4 bg-Satin-300 items-center rounded-xl "
             >
               <Feather name="user" size={hp(2.7)} color="#504f54" />
               <TextInput
@@ -89,7 +93,7 @@ export default function SignUp() {
               style={{ height: hp(7) }}
               className="flex-row gap-4 px-4 bg-Satin-300 items-center rounded-xl  "
             >
-              <Octicons name="mail" size={hp(2.7)} color="#504f54" />
+              <Feather name="image" size={hp(2.7)} color="#504f54" />
               <TextInput
                 onChangeText={(value) => (profileRef.current = value)}
                 style={{ fontSize: hp(2) }}
@@ -148,6 +152,6 @@ export default function SignUp() {
           </View>
         </View>
       </View>
-    </View>
+    </CustomKeyboardView>
   );
 }
