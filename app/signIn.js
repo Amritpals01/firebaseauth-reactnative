@@ -87,7 +87,7 @@ export default function SignIn() {
               </Text>
             </View>
             {/* Submit button */}
-              {/* Loading animation */}
+            {/* Loading animation */}
             <View>
               {loading ? (
                 <View className="flex-row justify-center">
