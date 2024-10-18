@@ -30,8 +30,14 @@ export default function SignUp() {
     setLoading(true);
 
     let response = await register(emailRef.current, passwordRef.current, usernameRef.current, profileRef.current);
+    setLoading(false);
     //Register process
+    console.log("got result", response);
+    if(!response.success){
+      Alert.alert('Sign up', response.msg);
+    }
   };
+  
 
   return (
     <CustomKeyboardView>
