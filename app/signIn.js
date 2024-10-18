@@ -9,7 +9,7 @@ import { Octicons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 import Loading from "../components/Loading";
-import CustomKeyboardView from "../components/customKeyboardView";
+import CustomKeyboardView from "../components/CustomKeyboardView";
 
 export default function SignIn() {
   const router = useRouter();
