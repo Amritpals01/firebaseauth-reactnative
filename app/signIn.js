@@ -45,20 +45,20 @@ export default function SignIn() {
         {/* image */}
         <View className="items-center">
           <Image
-            className="shadow-lg"
-            style={{ height: hp(35) }}
+            className="shadow-lg pb-0"
+            style={{ height: hp(33) }}
             resizeMode="cover"
             source={require("../assets/images/image.png")}
           />
         </View>
-        <View className="pt-1">
+        <View className="pt-1 ">
           <Text
             style={{ fontSize: hp(3), fontWeight: "semibold" }}
-            className="font-light tracking-widest text-center text-neutral-800 pb-8 shadow-md  "
+            className="font-light tracking-widest text-center text-neutral-800 pb-5 shadow-md  "
           >
-            Sign In
+            SIGN IN
           </Text>
-          <View className="  border-t-4 border-brown-500 pb-6 rounded-t-full "></View>
+          <View className="  border-t-4 border-brown-500 pb-5 rounded-t-full "></View>
 
           {/*inputs*/}
           <View className="gap-3">
@@ -136,7 +136,7 @@ export default function SignIn() {
                   <Text
                     style={{
                       fontSize: hp(1.8),
-                      textDecorationLine: "underline",
+                      
                     }}
                     className="font-bold text-brown-500 "
                   >
