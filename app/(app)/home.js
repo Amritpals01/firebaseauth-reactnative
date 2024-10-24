@@ -1,7 +1,6 @@
 import { View, Text, Pressable } from 'react-native'
 import React from 'react'
 import { useAuth} from '../../context/authContext'
-
 export default function Home() {
   const { logout, user } = useAuth();
   const handleLogout = async ()=> {
@@ -9,7 +8,7 @@ export default function Home() {
   }
   console.log('user data:', user)
 return (
-    <View className = "flex-1 bg-white">
+    <View className = "flex-1 bg-Satin-300">
       <Text>Home</Text>
       <Pressable onPress={handleLogout}>
         <Text>Sign Out</Text>
